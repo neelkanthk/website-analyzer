@@ -9,7 +9,7 @@ load_dotenv()
 router = APIRouter()
 
 
-@router.get("/")
+@router.get("/api")
 def read_root(request: Request):
     app = request.app  # Access the FastAPI app instance
     return {
@@ -19,12 +19,12 @@ def read_root(request: Request):
     }
 
 
-@router.get("/health")
-def health_check():
+@router.get("/api/health")
+def api_health_check():
     return {"status": "ok"}
 
 
-@router.get("/read-lighthouse-audit-file")
+@router.get("/api/read-lighthouse-audit-file")
 def read_s3_file():
     bucket_name = os.getenv("AWS_S3_BUCKET_NAME")
     object_key = "audits/021a23dd-c2a5-4199-87bc-7b7fea24f3a0.json"  # Replace with the file key in S3
@@ -35,7 +35,7 @@ def read_s3_file():
     return {"error": "Unable to read file"}
 
 
-@router.get("/download-lighthouse-audit-file")
+@router.get("/api/download-lighthouse-audit-file")
 def download_s3_file():
     bucket_name = os.getenv("AWS_S3_BUCKET_NAME")
     object_key = "audits/021a23dd-c2a5-4199-87bc-7b7fea24f3a0.json"

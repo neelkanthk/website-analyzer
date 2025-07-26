@@ -12,6 +12,7 @@
   "description": "",
   "dependencies": {
     "@aws-sdk/client-s3": "^3.850.0",
+    "axios": "^1.11.0",
     "chrome-launcher": "^1.2.0",
     "dotenv": "^17.2.1",
     "lighthouse": "^12.8.0",
